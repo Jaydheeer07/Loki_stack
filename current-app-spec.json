@@ -1,0 +1,496 @@
+﻿{
+    "name":  "dexiq-prod-api",
+    "services":  [
+                     {
+                         "name":  "api-prod",
+                         "github":  {
+                                        "repo":  "DexterousAi/ap-workflow",
+                                        "branch":  "production"
+                                    },
+                         "dockerfile_path":  "api/Dockerfile",
+                         "source_dir":  "api",
+                         "envs":  [
+                                      {
+                                          "key":  "ABN_LOOKUP_GUID",
+                                          "value":  "EV[1:Ia0Jv3LyCH5Pz3usQZ3H5U1Q7v2YB3xr:R2pW6Mh2gYov+BNlV7N5npljx2V/kW4WA8px3igulYFF92hyrFZGVmTbi5LSPFCnJvKuhQ==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "API_BASE_URL",
+                                          "value":  "EV[1:3KZpU3ZazvXe3acSMLpR20w1EvF8S/eR:tDWAzUcdu2T11rlkU2mp3qgK3cGvyHXnngBIInJjCN6wjaKrvh2BV6Quf4M=]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "AZURE_API_BASE",
+                                          "value":  "EV[1:5zjFVwYQ1fm7OpwhhO5AVPfPr2+qnqtF:cmfWw6jOtcAZl0OHhqOSIeEkY5YJ02CKDGA2DZCAzPHQOGl2Qd69ZqMxY4Tfxl+Etgfi85cJzzD4aWnXCnfS]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "AZURE_API_KEY",
+                                          "value":  "EV[1:G1NNdXpitpxpmBKk7Zs/SVF6sfPtXuXB:hVcPoTuvuM1o+QdcwshYKJcPlbdT5qpRfFla+r8p3ZeoF1HTOVJTQ/+W/16ZTcDlReagAvpLl3hb9t8z6jFUIo04MY/pI9h5QZgWfRfjYy5XsT459M7SUNkeMVeIqZf6UWTyMw==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "AZURE_API_VERSION",
+                                          "value":  "EV[1:rWltoEeXhudiz07WY+G3z5QEvazhsf+0:CWTnEA4qZCcLVuoqqoS7QetBxLxQVCNE2gKG93kOUgyejQ==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "DATABASE_URL",
+                                          "value":  "EV[1:PHMMYt4Kxu7p7BvfUOyNAZCjlVw/TK6d:7Abjcp/VYMClEcx4xFm09d1HVpxIoH24YuBqQfWn27vvMyJLUJfoFWxXgSgJZiTzh/Y2fDpA3ED8ty4E58PPYIvBM5cf4sr7/lDIVo+zirtjxI/jLq53GjnckRlUfAEOvlcp5xbm0hc5ob7tNYvnm3bompxOx4SQjgWkYXOLf3oNCEEa6nullTXfTSTNoxmNlOhWc6Qb0MoU6Pw=]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "DB_MAX_OVERFLOW",
+                                          "value":  "10",
+                                          "scope":  "RUN_AND_BUILD_TIME"
+                                      },
+                                      {
+                                          "key":  "DB_POOL_PRE_PING",
+                                          "value":  "true",
+                                          "scope":  "RUN_AND_BUILD_TIME"
+                                      },
+                                      {
+                                          "key":  "DB_POOL_RECYCLE",
+                                          "value":  "3600",
+                                          "scope":  "RUN_AND_BUILD_TIME"
+                                      },
+                                      {
+                                          "key":  "DB_POOL_SIZE",
+                                          "value":  "20",
+                                          "scope":  "RUN_AND_BUILD_TIME"
+                                      },
+                                      {
+                                          "key":  "DB_POOL_TIMEOUT",
+                                          "value":  "30",
+                                          "scope":  "RUN_AND_BUILD_TIME"
+                                      },
+                                      {
+                                          "key":  "ENCRYPTION_KEY",
+                                          "value":  "EV[1:6qs2ArTr/GmHn0/2BZ503JjvEB4sGpy9:js3KfwECSoOZZAXkCBBZ8/lXFLsTc1d2aQQ2yr0yHwhWuBP0bysc1gmSiqOTAbv9iEb93Qs0ESM+rf0N]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "ENVIRONMENT",
+                                          "value":  "EV[1:ryblNxapcSt/qcOAMtoA1wfYWEmTxojK:/cqcvvzZDK+2mNImUmlbA351F2jNSi+M8ms=]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "FROM_EMAIL",
+                                          "value":  "EV[1:UnMz4g8o9OUQ96dVGqj5xyCWg1rZgC/D:4IeCqh8kfKwubvNqGIUkdbD7METc1JlcFBq7b4KmhIKw1JbUPw==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "FRONTEND_URL",
+                                          "value":  "EV[1:NOHtYPAMHkzVJjdW8t6Y26nL8/g2tLcI:8mnUPppcA6lYUTBLWQm9lP02cuOWommiiL4qeK4GTtbjzy7aRggSow==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "GOOGLE_CLIENT_ID",
+                                          "value":  "EV[1:tPm1yanB6K53hj73a7Wh9cOHYnXyqjLk:GwADd+KCKu360V+2beDao7gBY5HTUsLFUAl3y6uxoGuQhD6JCeERdThDUUbB/Me+/1Gbe2wdNW3kwk0gSxkoTs20I7B8O4AY04OlWYKYdzNqrdchEez2eSU=]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "GOOGLE_CLIENT_SECRET",
+                                          "value":  "EV[1:nDrduyz1Bh81vBFYphBCdrY/wnyyQ/xp:+/gWZFF4l8DT97ruUV+uOawE0GED87kSTgu7MZUxBtskR+vwecbFeyi1U0PU4DOMOKyJ]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "GOOGLE_REDIRECT_URI",
+                                          "value":  "EV[1:pGzJ9uElFSMAfm4foISPk5u54J7iROs+:HCEXbc8lYc0rR32vnVB0Uec379CoIk7xUm+mQfe167s1ur+hjX5/9G9OpkBn5Ho+vL43ZBzSM4WCLaU60cDi7mvoHToeQEk4A5SBScZD]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "MICROSOFT_CLIENT_ID",
+                                          "value":  "EV[1:r3XuJCfO1uBK/1uCCotyiVy879NjY4aM:qH22ej9EJwQNlVpjxTC2E45qL1/NiW/KBXkpOyFltF0SoJznnQghyQTclwSXwGMgNLcezQ==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "MICROSOFT_CLIENT_SECRET",
+                                          "value":  "EV[1:vV/VWriGA58RrTCrAQPb2k0X/7FpXQpy:lkcQWuFwZDgk0hvqdBp1sNwjpIF5fHHab2RTnnIZBPBqVnlduSZFYHSILOwea0LjLAg1azFHQGk=]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "MICROSOFT_REDIRECT_URI",
+                                          "value":  "EV[1:p1c7aLumsUojygwJd43RyYjbNFJ20iYT:N5W0epYM5GtXcCw5KBmYfbB5vxU1RvN9fQBZ5rDJtftjAt8d/Po/x2d3P/QKL4QNlVOVg3ihYKmt51Q6D5em61RHZvs5spxxLEFIpcOP1Jnx]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "MICROSOFT_TENANT_ID",
+                                          "value":  "EV[1:XxnE2ODkdA52B0eOLXHOTf+/2x/3fMDb:qNXHY2sBszPCt1zCkVvp9hIChQjzL2Mn6ULADSkV5ML5EzwlsruYv4ioZ6M3qc/CJrBSzQ==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "MODEL",
+                                          "value":  "gpt-4.1-2025-04-14",
+                                          "scope":  "RUN_AND_BUILD_TIME"
+                                      },
+                                      {
+                                          "key":  "MODEL_EMAIL",
+                                          "value":  "gpt-4.1-mini-2025-04-14",
+                                          "scope":  "RUN_AND_BUILD_TIME"
+                                      },
+                                      {
+                                          "key":  "NODE_ENV",
+                                          "value":  "production",
+                                          "scope":  "RUN_AND_BUILD_TIME"
+                                      },
+                                      {
+                                          "key":  "OPENAI_API_KEY",
+                                          "value":  "EV[1:xZPk1PC0cAGd8QrUjELXEmPISFenwxgI:YR1NVqjRceLL6o2g551p1VWwQe92ayt/xxP24vZoZaKcVe5wrz3CvWW07+aqGn98Zk3cGFJRFf1IOGxGeZY1dKJ5CIqeN3L0bDemAkE3HLjBQ8gCoqoXMeXpHXhAM8brrl42FH12uUqaoo9wGDezzHfTbyvHMAyFvAT9WgHCXyjqXIuA67DdBJR3pDeXs6V0FeV3oMw4zBJjX6ckrqwF21wd0zXgtW6zj4J2eWIq4ClutKiE]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "REDIS_URL",
+                                          "value":  "EV[1:EUsKi8Ss0MYjxzpiOGCkeTuIWj3A+yZa:oXnKRUswtmsit4lmb/Eg98fGKK4sIV3FmX+Y2Wk1uN6o+ymo+bIDGGknpJ0soOwVQSWNDZTyn7JCs51bLDfBRbfx8OQyOKUETdzVy5Sn0z213TntWmTOw2CcET/FsmAWtu0dpytkMdrOkSfVohmHzuUiN8lZsoUwkMS+qseAomQltTHiGGU/RnuUXrE=]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "R2_ACCESS_KEY_ID",
+                                          "value":  "EV[1:h3N8SlVzOS2Df/7cTXBShdvbhh35CvPP:OH5O6VXlnH4tP3wIEyOTKTVmec69+7bjgQ2ecQXToakt/8MqMhhVTcVzJiXltNXT]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "R2_ACCOUNT_ID",
+                                          "value":  "EV[1:DsAlfUoDiWrS19voIqt/35CxHmpjN4g3:1m6dG0lxlVTXPJkPIFUpWTAdIRAw02uel6avbjC4DmDUnv04LmogZzABIwHrfTgE]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "R2_BUCKET_NAME",
+                                          "value":  "EV[1:aIDnBEpd1e4acrqnTIZGyPVcKTeMEXhu:ldI7dwd1ThUd1PXW9hfxgvDOcdiXDZC4rZRgrpfByBkA5gnxWQ==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "R2_PUBLIC_DOMAIN",
+                                          "value":  "EV[1:uf9tI0UOMPRK03az4MKtPkQfFjsM9dbD:48h9LHiSTW7ZBibkSkx9O33fgaPSsubA+fz5Y1LWzr/zQ5K24wA+QA==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "R2_SECRET_ACCESS_KEY",
+                                          "value":  "EV[1:NdXRwLeV7VosSlYprhtcJ9+5l19uX2PG:elApW4L7XzCJdP1Tz0DpgPf6xv7DVXtugrkp2ygEa6vcOYWb0dMVxlkQNP51ECAj6eROh3vou2QSD/OyyQ2RQaNA2Qgmv2uBhKaTyonmdLk=]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "RESEND_API_KEY",
+                                          "value":  "EV[1:5J11dOvUaYNTmIkCHC/z+h+8d2OqWx2R:Cg1e9uc+FJSb4RU+YjgXQxcFzAEPJRod+JMmZ+G7tg8e0SluHCh/NsQOQOLVkUdulos75w==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "XERO_CLIENT_ID",
+                                          "value":  "EV[1:CiA8qkYSskoemyHSEaBV4suWhyBt+9Zf:6n9gjSiilnTx4plkn8BTjwOKy2lSf7bTWkMz/e0p1qX1WD/pn0u90HliUEt0HAgX]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "XERO_CLIENT_SECRET",
+                                          "value":  "EV[1:72SXqesYE7+lgUUBL3h8P3DfMW+SG0AR:DtkNKYGDNa1GgW75SWSdVySZUcCdDXWC0GD1h+2eM8qRd5Mr2S2eAf4fNXeqg2LLO0zzEPpntr03DY4ECbnfvw==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "XERO_REDIRECT_URI",
+                                          "value":  "EV[1:f5RQ6UENgyuGgsS6gWwS4IaRWeM19V9r:zzQ1s6UUrqMU9dd0XdkAiyzn2ZWDyjO7CRuXR9fw75sfexXBsOsbFYj+5JJN7nuRm/Uq0x8/Jtime1DsoaUOu4KYNPW8ia5HIOartA==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      },
+                                      {
+                                          "key":  "XERO_TOKEN_URL",
+                                          "value":  "EV[1:SY7sMTRopc4MssqrzEXP8sUo72SslI3p:1jqzLnKjMuq7Mp/en2VaODPP0im/L36X2eBE3kPcwYCCfnJ5ryVwgNwqgntsLwFwygkrCqSWtQ==]",
+                                          "scope":  "RUN_AND_BUILD_TIME",
+                                          "type":  "SECRET"
+                                      }
+                                  ],
+                         "instance_size_slug":  "apps-s-2vcpu-4gb",
+                         "instance_count":  1,
+                         "http_port":  8000
+                     }
+                 ],
+    "workers":  [
+                    {
+                        "name":  "celery-prod",
+                        "github":  {
+                                       "repo":  "DexterousAi/ap-workflow",
+                                       "branch":  "production"
+                                   },
+                        "dockerfile_path":  "api/Dockerfile.celery",
+                        "envs":  [
+                                     {
+                                         "key":  "ABN_LOOKUP_GUID",
+                                         "value":  "EV[1:Lj7A6AKOuejvcARq1cOO2FqN8y8P07Bc:NU5lUtW9y7tEKzeyERmvgjhRVwZOaH4AgMVg72n2mEjA0ASGmogBbjlnlE04guVGIgw1cw==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "API_BASE_URL",
+                                         "value":  "EV[1:REIaODmDExhxwhC69sjRmoexUVmnlKOu:5UOuBaMP44niDASmxiGu0LW+UWHOCYURG4pUewv7ZzQQDKUFQFYI1tYPWsQ=]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "AZURE_API_BASE",
+                                         "value":  "EV[1:L5qW6SeHffcqPdKvz12vVAJseUsXOFgd:K2VzKZFRhid1+sL0hOuDptSH+xl4FqQrydiw2fzDVbGZSvaXSj05bwlVrWZEKGrp/32RR6CfjdDh+wmsV046]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "AZURE_API_KEY",
+                                         "value":  "EV[1:TRB9XhTNswqj6Xd+uu9URl6u0Uj3FRjY:SA9YNJKTpq/n9e3YRUqakofaA7Yd+k7wmE0rW/zjBEUt4j+7xX7R/zVyDiKPz5dhBsos8bx8vSWO1d/Brnuyb3HgGEPaIATox7eFD8C64Pk8qFsFsws8+BL6eSKfnzIUll2e9w==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "AZURE_API_VERSION",
+                                         "value":  "2024-08-01-preview",
+                                         "scope":  "RUN_AND_BUILD_TIME"
+                                     },
+                                     {
+                                         "key":  "DATABASE_URL",
+                                         "value":  "EV[1:PrCGBJEd8rOJ1R7Y2ZoFxMP9sd+Moop4:H7UW4pAbIs6aA/deIWosXZ8y+1MLsnUDa8fwkjXUbIYoLgYfbrFC7fwPL851l2XMrqI9MXdKCMIWpoys1/7A5zqFMVTmJAAqGvCnuFdQ89d9buq4z9ENtp0lUOeemU1l9Dx3oDaUOo1s39emyrhQbca+hFMjlQlVIuecjttSECtMlTlCE8K83UVHtFx+NrPttifTUMsEexA8cag=]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "DB_MAX_OVERFLOW",
+                                         "value":  "10",
+                                         "scope":  "RUN_AND_BUILD_TIME"
+                                     },
+                                     {
+                                         "key":  "DB_POOL_PRE_PING",
+                                         "value":  "true",
+                                         "scope":  "RUN_AND_BUILD_TIME"
+                                     },
+                                     {
+                                         "key":  "DB_POOL_RECYCLE",
+                                         "value":  "3600",
+                                         "scope":  "RUN_AND_BUILD_TIME"
+                                     },
+                                     {
+                                         "key":  "DB_POOL_SIZE",
+                                         "value":  "20",
+                                         "scope":  "RUN_AND_BUILD_TIME"
+                                     },
+                                     {
+                                         "key":  "DB_POOL_TIMEOUT",
+                                         "value":  "30",
+                                         "scope":  "RUN_AND_BUILD_TIME"
+                                     },
+                                     {
+                                         "key":  "ENCRYPTION_KEY",
+                                         "value":  "EV[1:gr1wJQG6Mgx+vvFPTTCBEibZirutpgaY:oV1VcAW9OPilqjfRDqENLVsv+V31ZNwHZmfjWadgTenA/uwmGPN6MVwlElCVHt42EL/64GWNyjTReegu]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "ENVIRONMENT",
+                                         "value":  "EV[1:SuP7GqD1PbyENCJ/PzEQ+sZSiphk9YdF:kTgGNL8N3D0DCLQZuOkvfdCTPkpa8bW7zec=]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "FROM_EMAIL",
+                                         "value":  "EV[1:Mu4yPZOOkVjnFTMvEI56sc+yZSeitc1i:QvF8VBmxEIkqGENPzNjBN8gP1zAVmTycAvUBiiTyJknYHKx+wA==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "FRONTEND_URL",
+                                         "value":  "EV[1:NIh+I8KLj4hjteOfrObzV5wuBBHMJf2c:9FfNL30aO5Jbg3P8XW3OUiwXc+Z0ikFWK45qQJtPeDy719UxWoprIg==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "GOOGLE_CLIENT_ID",
+                                         "value":  "EV[1:cRKL5A8N8vbkE40uVtrNt7xTyTeGXBsw:MQRnIMp42uTsWHDB4qwv/Eh4Mg+VQGra7jbG3Vw6jdXXKp35n3e0CEWoEEhXhbtHUIn+QIJhmWso/ZO/Sr0oE10GaUGoJ7gy9yKsI6zLhYhYSUUxBApzqis=]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "GOOGLE_CLIENT_SECRET",
+                                         "value":  "EV[1:BPBTUzcljwbf+/5o3Ho+X8VGOQMC5Qks:1K1DcSRuWNUZ6L/OR3uJQl/V/zCp1/wy2L4iE9XH/NprX/s/6Q1WN5C9a70pcHXHH7RF]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "GOOGLE_REDIRECT_URI",
+                                         "value":  "EV[1:xYSZu5rvQe581uH/k3nD5mHRqa8i3vEn:QmA6KJhBoKy3QDNun2Zn5ou4jrhvr6GkymaIDaQ6xk6wrHiwDfpyhs3qrviE71UbHlpHKrnnuk2067D4YdVjTKNB4Rko1O91Ypr8/VbO]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "MICROSOFT_CLIENT_ID",
+                                         "value":  "EV[1:BFXRbRm1vzhhe1rq2wqoKGUzH4Glct9D:95zcnQh2qjb5/fbKh6p5e/CKbn6U6A9gBMNs4mMUq6PLiD/0OOUi+RKE+v2CdG5xU1YkvA==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "MICROSOFT_CLIENT_SECRET",
+                                         "value":  "EV[1:FUcspUplc+xAW+kMKvmeUI0YZuSuOXVj:vop3TnPiWkegicegSwnWPpw3j/gpbhNLhkF32+4q6pS4qTiHSeyKcTIbpDgxxN0czQA7V3sHoZY=]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "MICROSOFT_REDIRECT_URI",
+                                         "value":  "EV[1:mf8FKANymqs0RXI5Ba+HyEgfdcJ6Gtsv:5Tc92JGkuiyqtXxdSDSVeXxhbBfsXhe1lyV9EYC9jrMZQ85Fbj8NLdpBD1wZ5TJFMnF9i2WCu3JRjoUPflpyJJPspQthXibmX4OhFrLwYjpE]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "MICROSOFT_TENANT_ID",
+                                         "value":  "EV[1:PF4eMxG2JvWug0Mz8Jj0f745z9j3qKtS:iD6eIED85ID0N3c4VEQzGOdopxRxCHe8+g1C96vMSEB9AKUeaOM/5H2AJusnq//vH6v85g==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "MODEL",
+                                         "value":  "gpt-4.1-2025-04-14",
+                                         "scope":  "RUN_AND_BUILD_TIME"
+                                     },
+                                     {
+                                         "key":  "MODEL_EMAIL",
+                                         "value":  "gpt-4.1-mini-2025-04-14",
+                                         "scope":  "RUN_AND_BUILD_TIME"
+                                     },
+                                     {
+                                         "key":  "NODE_ENV",
+                                         "value":  "EV[1:OcozJYOGaS9I4CF212dV9jDDJwTVWRU9:u3b+mJ2aHxT3pWQHkooyl9lantywOv81UJs=]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "OPENAI_API_KEY",
+                                         "value":  "EV[1:ROrhMwvXq3wtHHL2iX/tDMLuguuNNi0j:HFQh3t6ot20bpsIGmX4rX9kAmE81+WBOZBFqJVp+hT3mjL7pQziW8K49Lk6iWaeNfJPGJN4si/WPG9OTzdSCjK2Mmq7ZNCoJGOSpLS7dRmFLydKP53+r9+30Bvd/91t5WisSJXgMtm42MhUaW2fRGx18SyfhEyKMvrFr/lkWIqcM6xbRGt0edR/5gj4JBXW0nDITajj8D4iASnUvQeRB3MiBy3Sco8+vFiamuUAOd4VJLlkK]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "REDIS_URL",
+                                         "value":  "EV[1:3cs8FXbunovtzXntJdiNjFEwUf8k26us:I3RsCc+wiL9SxmGvpSjoqevxME/jwf0Gk2td8IlFxqVGo3iOVNraACMIPiPWlihZrSjNP/m3HV8Lz8MQXNxpittg1O6LeTg+JPo5f/MR4SmEsV5Xt05DZJEwza59MI62FEunUnr2meKF/uZ3dD1ulJq7248b5vw8y3s+SIJdjQp+Cmm+aezwhwgysQo=]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "R2_ACCESS_KEY_ID",
+                                         "value":  "EV[1:q5YLyKJ5rbIRkskxtn00BL5C2dAJNZYj:gedHM8imtyt0tdy5E5xviQHa4PSNbvUmmlXTWysqzqoFbCSSIq+wfc2+cf9au5v4]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "R2_ACCOUNT_ID",
+                                         "value":  "EV[1:0bUFYdzJ2Wu3yQwWr6l2UytGnglR3fmx:nXDIyW+PVGxDdAJXVx66YcG3ftQk8aZQxjla9UflUYLtHiyVWJ2PzfjxvzOrkSga]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "R2_BUCKET_NAME",
+                                         "value":  "EV[1:mmieUBil4wV7IYXd6fy8fGnCCiDqa8R3:l435xQCfUZCNnDD437KOKxBYDo6f6MunP3KjHSpsIa4V4wEdwQ==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "R2_PUBLIC_DOMAIN",
+                                         "value":  "EV[1:zTx/7WcLQ7AtaEFVGm3ry5QrdcC216FD:cttBvMlU1hNtal2ainveEGh2sXT4CwgysMl2sJXE6RlSRUCF6qkR+w==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "R2_SECRET_ACCESS_KEY",
+                                         "value":  "EV[1:pQAqDWeZcS9Seyw77I8vgp/41L5bS48T:fcjUn/5hJq9P+opoKmW30bclpvMzns6tXSjuvw7TebbTUTPqwpV39Ei8S3m34O9x6Se4j1iz6qlMBxWgSPaG4umAyIyMMf8Hiuu+7gyabbw=]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "RESEND_API_KEY",
+                                         "value":  "EV[1:lOZPpNbJczMs3OFVhAfNYVaIl2txgHJw:L6+Y2b0lenzIEmFia5O5qTB22esf5onP//O6MWElVclSuZ2WcqcV5OYhZCsFmpyy4MBZ5w==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "XERO_CLIENT_ID",
+                                         "value":  "EV[1:ynUz8vphVjd6FL9LRhdmB9qLlevLJYzX:4V7DctvcsEP3svz6SZX3MgVdb1kUpZBszPxwJCZ3XIQeCRVD153KUgvBwjvmvtB9]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "XERO_CLIENT_SECRET",
+                                         "value":  "EV[1:KAQk5yBE+I3iBUtD3q9dBxdJYh4b5Y4f:WmIyCENRS0qAZ9iEy2UaMLa7bCNRAPm6oTSwACZEC/1N12JI4vaKOMIBYPqI5y8TN71ff8q0CrEubEeU2Th8BQ==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "XERO_REDIRECT_URI",
+                                         "value":  "EV[1:L57onJHXy7Ic9CLqbvsU+NWfYRSe3u+h:Qt+nzbb6bOs8S5mATmjw5Hj6o1lf3bvAuszGhz0ZdgUfQ05hZNrTHXB1eVSWPVREiDnrmYBcYLtCtcfmUb6pkdShMJMZ6qP+R3UZEQ==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     },
+                                     {
+                                         "key":  "XERO_TOKEN_URL",
+                                         "value":  "EV[1:eWXc800qGPyAp8QMLEGS4k9JDdIwyn8m:c1yjDEaryo09T5PWY8ZBK1JLLvTvaamcGrHen6yrGX++fqvN25dTO91tvf2KFrJ1SNtBE0OfkA==]",
+                                         "scope":  "RUN_AND_BUILD_TIME",
+                                         "type":  "SECRET"
+                                     }
+                                 ],
+                        "instance_size_slug":  "apps-d-2vcpu-4gb",
+                        "instance_count":  1
+                    }
+                ],
+    "domains":  [
+                    {
+                        "domain":  "api.dexiq.com.au",
+                        "type":  "PRIMARY"
+                    }
+                ],
+    "region":  "syd",
+    "alerts":  [
+                   {
+                       "rule":  "DEPLOYMENT_FAILED"
+                   },
+                   {
+                       "rule":  "DOMAIN_FAILED"
+                   }
+               ],
+    "ingress":  {
+                    "rules":  [
+                                  {
+                                      "match":  {
+                                                    "path":  {
+                                                                 "prefix":  "/"
+                                                             },
+                                                    "authority":  {
+                                                                      "exact":  ""
+                                                                  }
+                                                },
+                                      "component":  {
+                                                        "name":  "api-prod"
+                                                    }
+                                  }
+                              ]
+                },
+    "features":  [
+                     "buildpack-stack=ubuntu-22"
+                 ]
+}

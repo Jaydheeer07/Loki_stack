@@ -1,0 +1,9 @@
+# Data directories
+loki-data/
+grafana-data/
+
+# Environment files
+.env
+
+# Logs
+*.log

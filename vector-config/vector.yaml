@@ -1,0 +1,125 @@
+# Vector Configuration for DigitalOcean to Loki Log Forwarding
+# Receives logs via HTTP, transforms them, and forwards to Loki
+#
+# Architecture:
+#   DigitalOcean -> ngrok -> Vector (port 9000) -> Loki -> Grafana
+#
+# DigitalOcean sends logs in OpenSearch bulk format (NDJSON)
+
+# API for health checks and metrics
+api:
+  enabled: true
+  address: "0.0.0.0:8686"
+
+# Sources - Where logs come from
+sources:
+  # Main HTTP endpoint - accepts any path for flexibility
+  # DigitalOcean OpenSearch sends to various paths like /_bulk, /logs/_bulk, etc.
+  digitalocean_http:
+    type: http_server
+    address: "0.0.0.0:9000"
+    encoding: ndjson
+    # Accept any path
+    strict_path: false
+    # Accept requests without specific path matching
+    headers:
+      - "Content-Type"
+      - "Authorization"
+
+# Transforms - Process and enrich logs
+transforms:
+  # Filter out OpenSearch metadata lines
+  # These are lines like {"index":...}, {"create":...}, or lines with just headers
+  filter_metadata:
+    type: filter
+    inputs:
+      - digitalocean_http
+    condition: |
+      !exists(.index) && !exists(.create) && exists(.log)
+
+  # Parse and enrich DigitalOcean logs
+  parse_do_logs:
+    type: remap
+    inputs:
+      - filter_metadata
+    source: |
+      # Add source label
+      .source = "digitalocean"
+      
+      # Extract component name from DO fields
+      if exists(.do_component_name) {
+        .component_label = .do_component_name
+      } else if exists(.component) {
+        .component_label = .component
+      } else {
+        .component_label = "unknown"
+      }
+      
+      # Extract app name from DO fields
+      if exists(.do_app_name) {
+        .app_label = .do_app_name
+      } else if exists(.app) {
+        .app_label = .app
+      } else {
+        .app_label = "dexiq-prod-api"
+      }
+      
+      # Use the .log field as the message (this is the actual Celery log)
+      if exists(.log) {
+        .message = .log
+      } else if exists(.message) {
+        .message = .message
+      } else {
+        .message = "No message"
+      }
+      
+      # Use DO timestamp if available
+      if exists(."@timestamp") {
+        .timestamp = ."@timestamp"
+      } else if !exists(.timestamp) {
+        .timestamp = now()
+      }
+      
+      # Extract log level from the log message
+      if contains(string!(.message), "ERROR") {
+        .level_label = "error"
+      } else if contains(string!(.message), "WARNING") {
+        .level_label = "warning"
+      } else if contains(string!(.message), "INFO") {
+        .level_label = "info"
+      } else if contains(string!(.message), "DEBUG") {
+        .level_label = "debug"
+      } else {
+        .level_label = "info"
+      }
+
+# Sinks - Where logs go
+sinks:
+  # Forward to Loki
+  loki:
+    type: loki
+    inputs:
+      - parse_do_logs
+    endpoint: "http://loki:3100"
+    encoding:
+      codec: text
+    labels:
+      job: "digitalocean"
+      source: "{{ source }}"
+      component: "{{ component_label }}"
+      app: "{{ app_label }}"
+      level: "{{ level_label }}"
+    # Remove fields that are now labels
+    remove_label_fields: true
+    # Batch settings for efficiency
+    batch:
+      max_bytes: 1048576
+      timeout_secs: 1
+
+  # Console output for debugging (remove in production)
+  console_debug:
+    type: console
+    inputs:
+      - parse_do_logs
+    encoding:
+      codec: json
