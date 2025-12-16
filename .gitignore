@@ -8,5 +8,8 @@ grafana-data/
 # Logs
 *.log
 
+#Current App Spec
+current-app-spec.json
+
 #Documentation
 LOKI_LOG_FORWARDING_GUIDE.md
