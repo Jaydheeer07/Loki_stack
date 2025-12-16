@@ -61,18 +61,18 @@ services:
       timeout: 5s
       retries: 5
 
-  # Cloudflare Tunnel - Uncomment after setting up tunnel token
-  # cloudflared:
-  #   image: cloudflare/cloudflared:latest
-  #   container_name: cloudflared
-  #   command: tunnel --no-autoupdate run
-  #   environment:
-  #     - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
-  #   depends_on:
-  #     - loki
-  #   restart: unless-stopped
-  #   networks:
-  #     - loki-network
+  # Cloudflare Tunnel
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - grafana
+    restart: unless-stopped
+    networks:
+      - loki-network
 
 networks:
   loki-network:
