@@ -7,3 +7,6 @@ grafana-data/
 
 # Logs
 *.log
+
+#Documentation
+LOKI_LOG_FORWARDING_GUIDE.md
